@@ -1,35 +1,5 @@
 
-"""
-#even numbers 
-
-list1 = [ 1, 2, 3, 4, 5, 6]
-list2 = [ ]
-def even_nums():
-    for i in list1:
-        if i % 2 == 0 :
-            list2.append(i)
-    print(list2)
-even_nums()
-
-# cheak if name if 5 chars long
-user_name = input("Name: ")
-char_count = len (user_name)
-def verifyer ():
-    if char_count >= 5:
-        print("Valid")
-    else : 
-        print("too short")
-verifyer()
-
-#function for returning a number of words in a list 
-word = ("i love jun good programing")
-sp = word.split()
-def num ():
-    print(len(sp))
-num()
-"""
-
-
+import os
 """
 To Do List app cli
 >Show menu
