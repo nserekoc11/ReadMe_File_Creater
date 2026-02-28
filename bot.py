@@ -4,7 +4,7 @@ from pathlib import Path
 from typing import Dict, List, Optional
 import ast
 import logging
-from tqdm import tqdm
+
 
 
 class CodeAnalyzer:
