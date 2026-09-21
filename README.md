@@ -6,7 +6,7 @@ A Python project.
 ## Project Type
 **Python**
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 /
@@ -14,10 +14,10 @@ A Python project.
 
 ```
 
-## 🛠️ Technologies & Dependencies
+##  Technologies & Dependencies
 
 
-## 🚀 Getting Started
+##  Getting Started
 
 ### Prerequisites
 - Ensure you have the necessary tools installed for Python development
@@ -38,18 +38,18 @@ Provide instructions on how to run your project here.
 # Example command
 ```
 
-## 📚 Important Files
+##  Important Files
 
 
-## 🤝 Contributing
+##  Contributing
 
 We welcome contributions! Please feel free to submit a Pull Request.
 
-## 📄 License
+##  License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
 
-## 📧 Contact
+##  Contact
 
 For questions or suggestions, please open an issue on the repository.
 

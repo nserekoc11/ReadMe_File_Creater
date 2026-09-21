@@ -226,11 +226,11 @@ class ReadmeGenerator:
         
     def scan_project(self) -> Dict:
         """Scan the project directory and extract information."""
-        logging.info(f"🔍 Scanning project: {self.project_name}")
+        logging.info(f" Scanning project: {self.project_name}")
         
         # Detect project type
         self.project_type = self._detect_project_type()
-        logging.info(f"📦 Project type detected: {self.project_type}")
+        logging.info(f" Project type detected: {self.project_type}")
         
         # Get project structure
         self.file_structure = self._get_directory_structure()
@@ -388,7 +388,7 @@ class ReadmeGenerator:
     
     def generate_readme(self) -> str:
         """Generate README content."""
-        print("📝 Generating README...")
+        print(" Generating README...")
         
         info = self.scan_project()
         
@@ -402,14 +402,14 @@ class ReadmeGenerator:
 
 {info['type']}
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 {self.project_name}/
 {self._get_directory_structure()}
 ```
 
-## 🛠️ Technologies & Dependencies
+##  Technologies & Dependencies
 
 """
         
@@ -419,7 +419,7 @@ class ReadmeGenerator:
                 readme_content += f"- {dep}\n"
         
         readme_content += f"""
-## 🚀 Getting Started
+##  Getting Started
 
 ### Prerequisites
 - Ensure you have the necessary tools installed for {info['type']} development
@@ -459,7 +459,7 @@ Provide instructions on how to run your project here.
 # Example command
 ```
 
-## 📚 Important Files
+##  Important Files
 
 """
         
@@ -467,15 +467,15 @@ Provide instructions on how to run your project here.
             readme_content += f"- `{file}`\n"
         
         readme_content += """
-## 🤝 Contributing
+##  Contributing
 
 We welcome contributions! Please feel free to submit a Pull Request.
 
-## 📄 License
+##  License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
 
-## 📧 Contact
+##  Contact
 
 For questions or suggestions, please open an issue on the repository.
 
@@ -494,11 +494,11 @@ For questions or suggestions, please open an issue on the repository.
         with open(output_path, 'w', encoding='utf-8') as f:
             f.write(content)
         
-        print(f"✅ README saved to: {output_path}")
+        print(f" README saved to: {output_path}")
     
     def generate_file_readmes(self, output_dir: str = "FILE_DOCS") -> None:
         """Generate individual README files for each code file with explanations."""
-        print(f"\n🔄 Analyzing {len(self.code_files)} code files...")
+        print(f"\n Analyzing {len(self.code_files)} code files...")
         
         # Create output directory
         output_path = self.project_path / output_dir
@@ -521,12 +521,12 @@ For questions or suggestions, please open an issue on the repository.
                 with open(output_file, 'w', encoding='utf-8') as f:
                     f.write(file_readme)
                 
-                print(f"  [{i}/{len(self.code_files)}] ✅ {relative_path} → {safe_name}.md")
+                print(f"  [{i}/{len(self.code_files)}]  {relative_path} → {safe_name}.md")
             
             except Exception as e:
-                print(f"  [{i}/{len(self.code_files)}] ❌ Error processing {code_file}: {e}")
+                print(f"  [{i}/{len(self.code_files)}]  Error processing {code_file}: {e}")
         
-        print(f"\n✅ Generated {len(self.code_files)} file documentation in '{output_dir}/' folder")
+        print(f"\n Generated {len(self.code_files)} file documentation in '{output_dir}/' folder")
     
     def _create_file_readme(self, file_path: Path, analysis: Dict) -> str:
         """Create a detailed README for a single code file."""
@@ -534,7 +534,7 @@ For questions or suggestions, please open an issue on the repository.
         
         readme = f"""# {analysis['file']} - Code Documentation
 
-## 📄 File Information
+##  File Information
 
 - **Location:** `{relative_path}`
 - **Language:** {analysis['language']}
@@ -543,13 +543,13 @@ For questions or suggestions, please open an issue on the repository.
 
 ---
 
-## 📋 Overview
+##  Overview
 
 This file is a {analysis['language']} module that contains various functionality. Below is a detailed breakdown of all the functions and classes defined in this file.
 
 ---
 
-## 🔧 Components
+##  Components
 
 ### Functions & Classes
 
@@ -569,7 +569,7 @@ This file is a {analysis['language']} module that contains various functionality
         readme += f"""
 ---
 
-## 📝 Code Preview (First 30 lines)
+##  Code Preview (First 30 lines)
 
 ```{analysis['language'].lower()}
 {analysis['preview']}
@@ -577,7 +577,7 @@ This file is a {analysis['language']} module that contains various functionality
 
 ---
 
-## 💡 Key Concepts
+##  Key Concepts
 
 - **Language:** {analysis['language']}
 - **File Type:** {"Configuration" if analysis['language'] in ['JSON', 'YAML', 'TOML', 'XML'] else "Source Code"}
@@ -585,13 +585,13 @@ This file is a {analysis['language']} module that contains various functionality
 
 ---
 
-## 🔗 Dependencies
+##  Dependencies
 
 Check the imports and dependencies at the top of this file to understand what external libraries are used.
 
 ---
 
-## 📚 Related Files
+##  Related Files
 
 Other files in this project may depend on or be related to this file. Check other documentation files to understand the complete picture.
 
@@ -605,7 +605,7 @@ Other files in this project may depend on or be related to this file. Check othe
 
 def main():
     """Main function to run the bot."""
-    print("🤖 README Generator Bot")
+    print(" README Generator Bot")
     print("=" * 50)
     
     # Get project path from user
@@ -615,7 +615,7 @@ def main():
     
     # Validate path
     if not os.path.isdir(project_path):
-        print(f"❌ Error: '{project_path}' is not a valid directory.")
+        print(f" Error: '{project_path}' is not a valid directory.")
         return
     
     # Generate README
@@ -625,7 +625,7 @@ def main():
         # Get all code files
         generator.code_files = generator.get_all_code_files()
         
-        print(f"\n📁 Found {len(generator.code_files)} code files")
+        print(f"\n Found {len(generator.code_files)} code files")
         
         # Show menu
         print("\n" + "=" * 50)
@@ -655,10 +655,10 @@ def main():
                 output_dir = custom_dir if custom_dir else "FILE_DOCS"
                 generator.generate_file_readmes(output_dir)
         
-        print("\n✅ Done!")
+        print("\n Done!")
     
     except Exception as e:
-        print(f"❌ Error: {e}")
+        print(f" Error: {e}")
         import traceback
         traceback.print_exc()
 
